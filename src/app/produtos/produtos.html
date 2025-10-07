@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row d-flex justify-content-around">
+
+        @if(this.listaProdutos && this.listaProdutos.length > 0){
+        @for(p of listaProdutos; track $index){
+            @if(p.emEstoque === true){
+                <div class="card" style="width:18rem; margin-top: 30px;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{p.nome}}</h5>
+                        <a routerLink="/produto-detalhe/{{p.id}}" class="btn bg-primary" style="color: white;">Comprar</a>
+                    </div>
+                </div>
+            } @else {
+                <div class="card" style="width:18rem; margin-top: 30px;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{p.nome}}</h5>
+                        <button [ngClass]="{'btn bg-secondary': p.emEstoque === false}" (click)="comprar(p.emEstoque)" style="color: white;">Comprar</button>
+                    </div>
+                </div>
+                }
+
+            }
+        } @else {
+            <P>Sem Produtos em Estoque</P>
+        }
+    </div>
+
+</div>

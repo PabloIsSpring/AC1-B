@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Detalhes do produto de compra</h2>
+    <div class="row d-flex flex-column align-items-center">
+        @for(p of listaProdutos; track $index){
+            @if(p.id == id){
+            <div class="col-4">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <h4>{{p.nome}}</h4>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <h4>R$ {{p.preco}},00   </h4>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <h4>{{p.descricao}}</h4>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        @if(p.emEstoque === true){
+                            <h4>Item com estoque</h4>
+                        } @else {
+                            <h4>Item sem estoque</h4>
+                        }
+                    </li>
+                </ul>
+            </div>
+            }
+        }
+    </div>
+</div>
